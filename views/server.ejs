@@ -1,0 +1,210 @@
+<%- include("partials/header.ejs") %>
+
+<main>
+    <section class="prices-section">
+        <div class="container">
+            <div class="prices">
+                <div class="prices-title">
+                    <h1>Available price options</h1>
+                </div>
+                <div class="prices-buttens">
+                    <div class="prices-toggle">
+                        <button id="price-btn1" class="active">
+                            KVM-Rootserver
+                        </button>
+                        <button id="price-btn2">Dedicated Server</button>
+                    </div>
+                </div>
+
+                <div id="kvm-root-prices" class="prices-list active">
+                    <div class="prices-features">
+                        <div class="prices-features-card">
+                            <p>KVM FEATURES INCLUDE</p>
+                            <ul>
+                                <li>1 Gbit/s Connectivity</li>
+                                <li>Unlimited Fair-Use Traffic</li>
+                                <li>Standard DDoS-Protection</li>
+                                <li>High Performance NVMe Ceph Cluster</li>
+                                <li>Fast Support</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="prices-card-list">
+                        <div class="prices-card">
+                            <h2>Starter</h2>
+                            <p>
+                                <small>€</small>
+                                5 / month
+                            </p>
+                            <ul>
+                                <li>3 CPU Cores</li>
+                                <hr />
+                                <li>40 GB Disk</li>
+                                <hr />
+                                <li>3 GiB RAM</li>
+                            </ul>
+                        </div>
+                        <div class="prices-card">
+                            <h2>Middle</h2>
+                            <p>
+                                <small>€</small>
+                                15 / month
+                            </p>
+                            <ul>
+                                <li>6 CPU Cores</li>
+                                <hr />
+                                <li>80 GB Disk</li>
+                                <hr />
+                                <li>6 GiB RAM</li>
+                            </ul>
+                        </div>
+                        <div class="prices-card">
+                            <h2>Big Spender</h2>
+                            <p>
+                                <small>€</small>
+                                25 / month
+                            </p>
+                            <ul>
+                                <li>9 CPU Cores</li>
+                                <hr />
+                                <li>120 GB Disk</li>
+                                <hr />
+                                <li>9 GiB RAM</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div id="dedicated-server-prices" class="prices-list">
+                    <div class="prices-features">
+                        <div class="prices-features-card">
+                            <p>DEDICATED SERVER FEATURES</p>
+                            <ul>
+                                <li>2 Gbit/s Connectivity</li>
+                                <li>Unlimited Fair-Use Traffic</li>
+                                <li>Standard DDoS-Protection</li>
+                                <li>High Performance NVMe Ceph Cluster</li>
+                                <li>Fast Support</li>
+                                <li>More stuff</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="prices-card-list">
+                        <div class="prices-card">
+                            <h2>Starter</h2>
+                            <p>
+                                <small>€</small>
+                                7 / month
+                            </p>
+                            <ul>
+                                <li>3 CPU Cores</li>
+                                <hr />
+                                <li>40 GB Disk</li>
+                                <hr />
+                                <li>
+                                    3 GiB RAM
+                                    <div class="slider-container">
+                                        <input
+                                            type="range"
+                                            id="price-slider"
+                                            min="0"
+                                            max="2"
+                                            step="1"
+                                            value="1" />
+                                    </div>
+                                </li>
+                                <hr />
+                                <li>
+                                    <div class="dropdown-container">
+                                        <select id="dropdown-menu">
+                                            <option value="option1">
+                                                10 GB/s
+                                            </option>
+                                            <option value="option2">
+                                                2x10 GB/s
+                                            </option>
+                                        </select>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="prices-card">
+                            <h2>Middle</h2>
+                            <p>
+                                <small>€</small>
+                                14 / month
+                            </p>
+                            <ul>
+                                <li>6 CPU Cores</li>
+                                <hr />
+                                <li>80 GB Disk</li>
+                                <hr />
+                                <li>6 GiB RAM</li>
+                            </ul>
+                        </div>
+                        <div class="prices-card">
+                            <h2>Big Spender</h2>
+                            <p>
+                                <small>€</small>
+                                23 / month
+                            </p>
+                            <ul>
+                                <li>9 CPU Cores</li>
+                                <hr />
+                                <li>120 GB Disk</li>
+                                <hr />
+                                <li>9 GiB RAM</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="server-information-section">
+        <div class="container">
+            <div class="server-information">
+                <h2>Features</h2>
+                <div class="information-row">
+                    <div class="information-img">
+                        <img src="/images/OT11BI0.jpg" alt="" />
+                    </div>
+                    <div class="information-divider"></div>
+                    <div class="information-text">
+                        <div class="information-text-layout">
+                            <h3>Fast</h3>
+                            <p>
+                                Lorem ipsum, dolor sit amet consectetur
+                                adipisicing elit. Vitae, quidem voluptatum
+                                magnam laudantium sint dolorem quaerat nemo
+                                iusto sequi, at quod dolore porro rerum
+                                praesentium. Blanditiis veniam molestiae
+                                assumenda hic!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="information-row">
+                    <div class="information-text">
+                        <div class="information-text-layout">
+                            <h3>Secure</h3>
+                            <p>
+                                Lorem ipsum, dolor sit amet consectetur
+                                adipisicing elit. Vitae, quidem voluptatum
+                                magnam laudantium sint dolorem quaerat nemo
+                                iusto sequi, at quod dolore porro rerum
+                                praesentium. Blanditiis veniam molestiae
+                                assumenda hic!
+                            </p>
+                        </div>
+                    </div>
+                    <div class="information-divider"></div>
+                    <div class="information-img">
+                        <img src="/images/OT11BI0.jpg" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<%- include("partials/footer.ejs") %>

@@ -19,7 +19,9 @@
                 <div id="kvm-root-prices" class="prices-list active">
                     <div class="prices-features">
                         <div class="prices-features-card">
-                            <p>KVM FEATURES INCLUDE</p>
+                            <p class="features-top-paragraph">
+                                KVM FEATURES INCLUDE
+                            </p>
                             <ul>
                                 <li>1 Gbit/s Connectivity</li>
                                 <li>Unlimited Fair-Use Traffic</li>
@@ -27,15 +29,19 @@
                                 <li>High Performance NVMe Ceph Cluster</li>
                                 <li>Fast Support</li>
                             </ul>
+                            <p class="features-bottom-paragraph"></p>
                         </div>
                     </div>
                     <div class="prices-card-list">
                         <div class="prices-card">
-                            <h2>Starter</h2>
-                            <p>
-                                <small>€</small>
-                                5 / month
-                            </p>
+                            <h2>STARTER</h2>
+                            <div
+                                class="prices-card-number animate__animated animate__fadeIn">
+                                <div class="bubble">
+                                    <p class="prices-card-number-big">€ 5</p>
+                                    <p class="prices-card-number-small">/ mo</p>
+                                </div>
+                            </div>
                             <ul>
                                 <li>3 CPU Cores</li>
                                 <hr />
@@ -45,11 +51,14 @@
                             </ul>
                         </div>
                         <div class="prices-card">
-                            <h2>Middle</h2>
-                            <p>
-                                <small>€</small>
-                                15 / month
-                            </p>
+                            <h2>MIDDLE</h2>
+                            <div
+                                class="prices-card-number animate__animated animate__fadeIn">
+                                <div class="bubble">
+                                    <p class="prices-card-number-big">€ 15</p>
+                                    <p class="prices-card-number-small">/ mo</p>
+                                </div>
+                            </div>
                             <ul>
                                 <li>6 CPU Cores</li>
                                 <hr />
@@ -59,11 +68,14 @@
                             </ul>
                         </div>
                         <div class="prices-card">
-                            <h2>Big Spender</h2>
-                            <p>
-                                <small>€</small>
-                                25 / month
-                            </p>
+                            <h2>ADVANCED</h2>
+                            <div
+                                class="prices-card-number animate__animated animate__fadeIn">
+                                <div class="bubble">
+                                    <p class="prices-card-number-big">€ 25</p>
+                                    <p class="prices-card-number-small">/ mo</p>
+                                </div>
+                            </div>
                             <ul>
                                 <li>9 CPU Cores</li>
                                 <hr />
@@ -77,82 +89,158 @@
                 <div id="dedicated-server-prices" class="prices-list">
                     <div class="prices-features">
                         <div class="prices-features-card">
-                            <p>DEDICATED SERVER FEATURES</p>
+                            <p class="features-top-paragraph">
+                                DEDICATED SERVER FEATURES
+                            </p>
                             <ul>
-                                <li>2 Gbit/s Connectivity</li>
-                                <li>Unlimited Fair-Use Traffic</li>
-                                <li>Standard DDoS-Protection</li>
-                                <li>High Performance NVMe Ceph Cluster</li>
-                                <li>Fast Support</li>
-                                <li>More stuff</li>
+                                <li>- 2 Gbit/s Connectivity -</li>
+                                <li>- Unlimited Fair-Use Traffic -</li>
+                                <li>- Standard DDoS-Protection -</li>
+                                <li>- High Performance NVMe Ceph Cluster -</li>
+                                <li>- Fast Support -</li>
+                                <li>- More stuff -</li>
                             </ul>
+                            <p class="features-bottom-paragraph"></p>
                         </div>
                     </div>
                     <div class="prices-card-list">
                         <div class="prices-card">
-                            <h2>Starter</h2>
-                            <p>
-                                <small>€</small>
-                                7 / month
-                            </p>
+                            <h2>STARTER</h2>
+                            <div
+                                class="prices-card-number animate__animated animate__fadeIn">
+                                <div class="bubble">
+                                    <p class="prices-card-number-big">
+                                        €
+                                        <span id="starter-price">5</span>
+                                    </p>
+                                    <p class="prices-card-number-small">/ mo</p>
+                                </div>
+                            </div>
                             <ul>
                                 <li>3 CPU Cores</li>
                                 <hr />
                                 <li>40 GB Disk</li>
                                 <hr />
                                 <li>
-                                    3 GiB RAM
+                                    <span id="starter-ram-text">3</span>
+                                    GiB RAM
                                     <div class="slider-container">
                                         <input
                                             type="range"
-                                            id="price-slider"
+                                            id="starter-ram-slider"
                                             min="0"
                                             max="2"
                                             step="1"
-                                            value="1" />
+                                            value="0" />
                                     </div>
                                 </li>
                                 <hr />
                                 <li>
-                                    <div class="dropdown-container">
-                                        <select id="dropdown-menu">
-                                            <option value="option1">
-                                                10 GB/s
-                                            </option>
-                                            <option value="option2">
-                                                2x10 GB/s
-                                            </option>
-                                        </select>
+                                    <span id="starter-connection-text">10</span>
+                                    GB/s connectivity
+                                    <div class="slider-container">
+                                        <input
+                                            type="range"
+                                            id="starter-connection-slider"
+                                            min="0"
+                                            max="1"
+                                            step="1"
+                                            value="0" />
                                     </div>
                                 </li>
                             </ul>
                         </div>
                         <div class="prices-card">
-                            <h2>Middle</h2>
-                            <p>
-                                <small>€</small>
-                                14 / month
-                            </p>
+                            <h2>MIDDLE</h2>
+                            <div
+                                class="prices-card-number animate__animated animate__fadeIn">
+                                <div class="bubble">
+                                    <p class="prices-card-number-big">
+                                        €
+                                        <span id="middle-price">10</span>
+                                    </p>
+                                    <p class="prices-card-number-small">/ mo</p>
+                                </div>
+                            </div>
                             <ul>
                                 <li>6 CPU Cores</li>
                                 <hr />
                                 <li>80 GB Disk</li>
                                 <hr />
-                                <li>6 GiB RAM</li>
+                                <li>
+                                    <span id="middle-ram-text">3</span>
+                                    GiB RAM
+                                    <div class="slider-container">
+                                        <input
+                                            type="range"
+                                            id="middle-ram-slider"
+                                            min="0"
+                                            max="2"
+                                            step="1"
+                                            value="0" />
+                                    </div>
+                                </li>
+                                <hr />
+                                <li>
+                                    <span id="middle-connection-text">10</span>
+                                    GB/s connectivity
+                                    <div class="slider-container">
+                                        <input
+                                            type="range"
+                                            id="middle-connection-slider"
+                                            min="0"
+                                            max="1"
+                                            step="1"
+                                            value="0" />
+                                    </div>
+                                </li>
                             </ul>
                         </div>
                         <div class="prices-card">
-                            <h2>Big Spender</h2>
-                            <p>
-                                <small>€</small>
-                                23 / month
-                            </p>
+                            <h2>ADVANCED</h2>
+                            <div
+                                class="prices-card-number animate__animated animate__fadeIn">
+                                <div class="bubble">
+                                    <p class="prices-card-number-big">
+                                        €
+                                        <span id="big-price">15</span>
+                                    </p>
+                                    <p class="prices-card-number-small">/ mo</p>
+                                </div>
+                            </div>
                             <ul>
                                 <li>9 CPU Cores</li>
                                 <hr />
                                 <li>120 GB Disk</li>
                                 <hr />
-                                <li>9 GiB RAM</li>
+                                <li>
+                                    <span id="big-ram-text">3</span>
+                                    GiB RAM
+                                    <div class="slider-container">
+                                        <input
+                                            type="range"
+                                            id="big-ram-slider"
+                                            min="0"
+                                            max="2"
+                                            step="1"
+                                            value="0" />
+                                    </div>
+                                    <hr />
+                                </li>
+
+                                <li>
+                                    <span id="big-connection-text">10</span>
+                                    GB/s connectivity
+                                    <div class="slider-container">
+                                        <input
+                                            type="range"
+                                            id="big-connection-slider"
+                                            min="0"
+                                            max="1"
+                                            step="1"
+                                            value="0" />
+                                    </div>
+                                </li>
                             </ul>
                         </div>
                     </div>

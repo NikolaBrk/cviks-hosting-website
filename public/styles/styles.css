@@ -6,7 +6,14 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Style the header and navbar */
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    /* background-color: #023483; */
+}
+
+/* ----------------------------------- Header ------------------------------------ */
+
 header {
     background-color: #023483;
     color: #fff;
@@ -19,13 +26,12 @@ nav {
 }
 
 .container {
-    width: 60%;
+    width: 65%;
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* z-index: 10; */
 }
 
 svg {
@@ -98,7 +104,7 @@ svg {
     background-color: rgba(255, 255, 255, 0.438);
 }
 
-/* Dropdown Button */
+/* -------------- Dropdown Button -------------- */
 .dropbtn {
     background-color: transparent;
     color: white;
@@ -110,13 +116,11 @@ svg {
     font-weight: 400;
 }
 
-/* The container <div> - needed to position the dropdown content */
 .dropdown {
     position: relative;
     display: inline-block;
 }
 
-/* Dropdown Content (Hidden by Default) */
 .dropdown-content {
     display: none;
     position: absolute;
@@ -127,7 +131,6 @@ svg {
     border-radius: 15px;
 }
 
-/* Links inside the dropdown */
 .dropdown-content a {
     height: 25px;
     color: rgba(0, 0, 0, 0.655);
@@ -147,22 +150,18 @@ svg {
     background-color: transparent;
 }
 
-/* Change color of dropdown links on hover */
 .dropdown-content a:hover {
     color: black;
     background-color: rgba(186, 184, 184, 0.609);
     border-radius: 15px;
 }
 
-/* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
-/* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
     background-color: transparent;
-    /* background-color: black; */
 }
 
 .arrow {
@@ -242,14 +241,18 @@ footer {
 
 /*------------- Animation ----------------*/
 .area {
-    background: #4e64c8;
+    /* background: #4e64c8; */
+    background: linear-gradient(
+        135deg,
+        rgb(0, 68, 157) 0%,
+        rgb(14, 42, 71) 100%
+    );
     width: 100%;
     height: 100vh;
 }
 
 .circles {
     position: absolute;
-    /* top: 10; */
     left: 0;
     padding: 0px;
     width: 100%;
@@ -385,6 +388,10 @@ h1 {
     color: white;
 }
 
+.hero-description > p {
+    margin-right: 50px;
+}
+
 .hero-img {
     width: 50%;
 }
@@ -411,14 +418,14 @@ h1 {
 
 .features {
     display: block;
-    height: 800px;
     width: 100%;
-    padding-top: 25px;
+    margin-top: 50px;
+    margin-bottom: 150px;
 }
 
 .features-title {
     color: #023483;
-    height: 125px;
+    margin: 50px 0px;
     width: 100%;
     text-align: center;
 }
@@ -426,24 +433,31 @@ h1 {
 .features-title > h2 {
     text-decoration: underline;
     font-weight: 700;
+    font-size: 36px;
 }
 
 .features-title > p {
     text-decoration: none;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 200;
 }
 
 .features-row {
     display: flex;
-    height: 250px;
     width: 100%;
+    height: 175px;
     text-align: left;
+    margin-bottom: 100px;
+    justify-content: center;
+    align-items: center;
 }
 
 .feature {
-    width: 35%;
+    width: 50%;
+    height: 100%;
     color: #023483;
+    padding: 15px;
+    margin: 0px 35px;
 }
 
 .feature > h3 {
@@ -459,19 +473,29 @@ h1 {
 }
 
 .feature-img {
-    padding: 15px;
-    width: 15%;
+    display: flex;
+    width: 75px;
+    margin: 0px 25px;
+    border-radius: 35%;
+    border-color: #4e64c8;
+    transition: all 0.3s ease;
 }
 
-.feature-img > img {
-    display: block;
-    height: 150px;
-    width: 150px;
+.feature-img > a {
+    text-decoration: none;
+}
+
+.feature-img > a > svg {
+    padding: 10px;
+    margin: 10px;
+    background-color: #4e64c8;
+    color: white;
+    border-radius: 35%;
 }
 
 .feature-line {
     width: 4px;
-    height: 80%;
+    height: 100%;
     background-color: #023483;
     margin: 0px 25px;
     border-radius: 2px;
@@ -482,14 +506,17 @@ h1 {
 .information-section {
     width: 100%;
     height: 600px;
-    background-color: #4e64c8;
+    background: linear-gradient(
+        135deg,
+        rgb(0, 68, 157) 0%,
+        rgb(14, 42, 71) 100%
+    );
 }
 
 .information {
     width: 100%;
     height: 600px;
     text-align: center;
-
     color: white;
 }
 
@@ -498,26 +525,22 @@ h1 {
 .prices-section {
     width: 100%;
     height: 1300px;
-    background: linear-gradient(
-        135deg,
-        #1e5799 0%,
-        #2989d8 50%,
-        #207cca 51%,
-        #7db9e8 100%
-    );
     /* background: linear-gradient(
         135deg,
-        rgba(78, 100, 200, 1) 0%,
-        rgba(164, 205, 244, 1) 100%
+        rgb(0, 68, 157) 0%,
+        rgb(14, 42, 71) 100%
     ); */
+    background-image: url(/images/shiny.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
     padding: 40px 0px;
-    padding-bottom: 150px;
+    padding-bottom: 250px;
 }
 
 .prices {
     width: 100%;
     display: block;
-    margin-bottom: 150px;
+    margin-bottom: 250px;
 }
 
 /* ---------------- */
@@ -558,12 +581,24 @@ h1 {
 }
 
 .prices-toggle > button:hover {
-    background-color: #02338368;
+    background: linear-gradient(
+        -45deg,
+        rgba(179, 220, 237, 1) 0%,
+        rgba(41, 184, 229, 1) 0%,
+        rgba(32, 124, 229, 1) 50%,
+        rgba(32, 124, 229, 1) 100%
+    );
     transition: background-color 350ms linear;
 }
 
 .prices-toggle > button.active {
-    background-color: #023383dc;
+    background: linear-gradient(
+        -45deg,
+        rgba(179, 220, 237, 1) 0%,
+        rgba(41, 184, 229, 1) 0%,
+        rgba(32, 124, 229, 1) 50%,
+        rgba(32, 124, 229, 1) 100%
+    );
     color: #fff;
     border: 1px solid #fff;
 }
@@ -598,9 +633,9 @@ h1 {
 .prices-features-card {
     width: 22%;
     margin: 20px;
-    background-color: #fff;
     border: 2px solid #fff;
-    border-radius: 20px;
+    background-color: #fff;
+    border-radius: 22px;
 }
 
 .prices-features-card > p {
@@ -608,9 +643,23 @@ h1 {
     margin: 0px;
     padding: 20px 0px;
     color: #fff;
-    background-color: #023483;
+    background: linear-gradient(
+        -45deg,
+        rgba(179, 220, 237, 1) 0%,
+        rgba(41, 184, 229, 1) 0%,
+        rgba(32, 124, 229, 1) 50%,
+        rgba(32, 124, 229, 1) 100%
+    );
+}
+
+.features-top-paragraph {
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
+}
+
+.features-bottom-paragraph {
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
 }
 
 .prices-features-card > ul {
@@ -630,10 +679,10 @@ h1 {
 /* ---------------- */
 
 .prices-card {
-    width: 20%;
-    margin: 10px 20px;
-    background-color: #fff;
+    min-width: 22%;
+    margin: 15px;
     border: 2px solid #fff;
+    background-color: #fff;
     border-radius: 20px;
     transition: 0.15s ease-in-out;
 }
@@ -644,31 +693,57 @@ h1 {
 
 .prices-card-list {
     display: flex;
-    width: 100%;
+    width: auto;
     text-align: center;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .prices-card > h2 {
     width: 100%;
-    margin: 0px;
-    padding: 40px 0px;
-    color: #fff;
-    background-color: #023483;
-    border-top-right-radius: 20px;
-    border-top-left-radius: 20px;
+    margin: 15px 0px 40px 0px;
+    font-size: 46px;
+    background: -webkit-linear-gradient(
+        rgb(179, 220, 237, 1),
+        rgb(32, 124, 229, 1)
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.prices-card > p {
+.prices-card-number {
+    display: flex;
     width: 100%;
+    color: #023483;
+    justify-content: center;
+}
+
+.bubble {
+    width: 50%;
+    background: linear-gradient(
+        -45deg,
+        rgba(179, 220, 237, 1) 0%,
+        rgba(41, 184, 229, 1) 0%,
+        rgba(32, 124, 229, 1) 50%,
+        rgba(32, 124, 229, 1) 100%
+    );
+    color: #fff;
+    border-radius: 50%;
+    padding: 15px;
+}
+
+.prices-card-number-big {
     margin: 0px;
-    padding: 60px 0px;
-    font-size: 32px;
+    font-size: 46px;
+}
+
+.prices-card-number-small {
+    margin: 0px;
+    font-size: 24px;
 }
 
 .prices-card > ul {
-    width: 100%;
-    padding: 0px;
+    padding: 0px 40px;
     list-style-type: none;
 }
 
@@ -677,12 +752,19 @@ h1 {
     padding: 30px 0px;
 }
 
-.slider-container {
-    padding: 10px;
+.prices-card-bubble {
+    color: #fff;
+    background-color: #023483;
+    width: 50px;
+    text-wrap: wrap;
 }
 
-.dropdown-menu {
-    width: 200px;
+.small-text {
+    font-size: 20px;
+}
+
+.slider-container {
+    padding: 10px;
 }
 
 /*------------------------------- Server Information --------------------------------------*/
@@ -831,7 +913,12 @@ h1 {
 /*------------------------------- FAQ Page --------------------------------------*/
 
 .faq-title-section {
-    background-color: #4e64c8;
+    /* background-color: #4e64c8; */
+    background: linear-gradient(
+        135deg,
+        rgb(0, 68, 157) 0%,
+        rgb(14, 42, 71) 100%
+    );
 }
 
 .faq-title {
@@ -890,4 +977,129 @@ details summary {
 
 details[open] summary {
     margin-bottom: 10px;
+}
+
+/*------------------------------- Datacenter Page --------------------------------------*/
+
+.map-section {
+    background-image: url("/images/map-image.png");
+    width: 100%;
+    z-index: 1;
+}
+
+.map {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.map-side {
+    width: 50%;
+}
+
+.map-text {
+    background-color: white;
+    color: #023483;
+    z-index: 10;
+    padding: 25px;
+    margin: 600px 75px;
+    border-radius: 25px;
+}
+
+.map-text > p {
+    font-weight: 300;
+}
+
+/*--------------- Features Page --------------*/
+
+.location-features-section {
+    background-color: #023483;
+}
+
+.location-features {
+    width: 100%;
+    margin: 100px;
+    color: white;
+}
+
+.location-features-title {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 36px;
+}
+
+.location-features-list {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.location-features-item {
+    margin: 25px;
+}
+
+.location-features-item > svg {
+    background-color: white;
+    padding: 15px;
+    border-radius: 20px;
+    color: #0652ce;
+}
+
+/*------------------------------- Hardware Page --------------------------------------*/
+
+.specifications-section {
+    background: linear-gradient(
+        -45deg,
+        rgba(179, 220, 237, 1) 0%,
+        rgba(41, 184, 229, 1) 0%,
+        rgba(32, 124, 229, 1) 50%,
+        rgba(32, 124, 229, 1) 100%
+    );
+}
+
+.specifications {
+    width: 100%;
+    margin: 250px 0px;
+}
+
+.hardware-title {
+    width: 100%;
+    margin-bottom: 200px;
+    text-align: center;
+    color: #fff;
+}
+
+.hardware-title > h1 {
+    font-size: 48px;
+}
+
+.specifications-table {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+}
+
+.specifications-table > table {
+    border-collapse: collapse;
+    background-color: #fff;
+}
+
+.specifications-table th,
+.specifications-table td {
+    border-bottom: 1px solid #023483;
+    padding: 10px;
+    /* background-color: white; */
+}
+
+.specifications-table th {
+    background-color: #023483;
+    color: #fff;
+    text-align: left;
+}
+
+.specifications-table tr:hover {
+    background-color: #b1b1b1;
 }

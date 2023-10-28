@@ -1,3 +1,5 @@
+// ----------------------- Text Animation -------------------------
+
 var TxtType = function (el, toRotate, period) {
     this.toRotate = toRotate;
     this.el = el;
@@ -18,7 +20,7 @@ TxtType.prototype.tick = function () {
         this.txt = fullTxt.substring(0, this.txt.length + 1);
     }
 
-    this.el.innerHTML = '<span class="wrap">' + this.txt + "</span>";
+    this.el.innerHTML = '<span class="wrap white--bar">' + this.txt + "</span>";
 
     var that = this;
     var delta = 200 - Math.random() * 100;
@@ -50,22 +52,16 @@ window.onload = function () {
             new TxtType(elements[i], JSON.parse(toRotate), period);
         }
     }
-    // INJECT CSS
-    var css = document.createElement("style");
-    css.type = "text/css";
-    css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
-    document.body.appendChild(css);
 };
 
 // ----------------------- Page Transition -------------------------
-
 
 document.addEventListener("DOMContentLoaded", function () {
     const links = document.querySelectorAll("a");
 
     links.forEach(function (link) {
         link.addEventListener("click", function (e) {
-            e.preventDefault(); // Prevent the default link behavior
+            e.preventDefault();
 
             const href = this.getAttribute("href");
 
@@ -80,6 +76,23 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+// ----------------------- Hamburger Menu -------------------------
+
+const menuToggle = document.querySelector(".hamburger-toggle");
+const hamburger = document.querySelector(".hamburger-content");
+const buttenLine = document.querySelectorAll(".bar");
+const buttenX = document.querySelector(".x-toggle");
+
+menuToggle.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+
+    buttenLine.forEach((line) => {
+        line.classList.toggle("active");
+    });
+
+    buttenX.classList.toggle("active");
+});
+
 // --------------------------------- Butten Activation -------------------------------
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -88,9 +101,17 @@ document.addEventListener("DOMContentLoaded", function () {
     const kvm = document.getElementById("kvm-root-prices");
     const dedicated = document.getElementById("dedicated-server-prices");
 
+    const serverBtn1 = document.getElementById("server-btn1");
+    const serverBtn2 = document.getElementById("server-btn2");
+    const serverBtn3 = document.getElementById("server-btn3");
+    const amd = document.getElementById("AMD-RYZEN");
+    const intel = document.getElementById("INTEL");
+    const xeon = document.getElementById("XEON");
+
     btn1.addEventListener("click", function () {
         btn1.classList.add("active");
         kvm.classList.add("active");
+
         btn2.classList.remove("active");
         dedicated.classList.remove("active");
     });
@@ -98,238 +119,84 @@ document.addEventListener("DOMContentLoaded", function () {
     btn2.addEventListener("click", function () {
         btn2.classList.add("active");
         dedicated.classList.add("active");
+
         btn1.classList.remove("active");
         kvm.classList.remove("active");
     });
+
+    serverBtn1.addEventListener("click", function () {
+        serverBtn1.classList.add("active");
+        amd.classList.add("active");
+
+        serverBtn2.classList.remove("active");
+        serverBtn3.classList.remove("active");
+        intel.classList.remove("active");
+        xeon.classList.remove("active");
+    });
+
+    serverBtn2.addEventListener("click", function () {
+        serverBtn2.classList.add("active");
+        intel.classList.add("active");
+
+        serverBtn1.classList.remove("active");
+        serverBtn3.classList.remove("active");
+        amd.classList.remove("active");
+        xeon.classList.remove("active");
+    });
+
+    serverBtn3.addEventListener("click", function () {
+        serverBtn3.classList.add("active");
+        xeon.classList.add("active");
+
+        serverBtn2.classList.remove("active");
+        serverBtn1.classList.remove("active");
+        intel.classList.remove("active");
+        amd.classList.remove("active");
+    });
 });
 
-// --------------------------------- Slider Price Change -------------------------------
+// --------------------------------- Slider Price Change -------------------------------------------
 
-function priceCalculation(first, second, third) {
-    return first + second + third;
+// Base prices, Ram Arrays and connection Arrays
+const basePrices = [
+    5, 15, 25, 35, 60, 90, 5, 15, 25, 35, 60, 90, 5, 15, 25, 35, 60, 90,
+];
+const ramArray = [8, 16, 32, 64, 128];
+const connectionArray = ["10", "2x10"];
+
+// Getting all price elements and slider elements
+const priceElements = document.getElementsByClassName("price");
+const ramTextElements = document.getElementsByClassName("ram-text");
+const sliderElements = document.getElementsByClassName("ram-slider");
+const çonnectionTextElements =
+    document.getElementsByClassName("connection-text");
+const connectionSliderElements =
+    document.getElementsByClassName("connection-slider");
+
+// Looping through price elements and attaching event listeners
+for (let i = 0; i < priceElements.length; i++) {
+    sliderElements[i].addEventListener("input", () => updatePrice(i));
+    connectionSliderElements[i].addEventListener("input", () => updatePrice(i));
+    updatePrice(i);
 }
 
-// ----------------------- Starter Price and Text -------------------------
-
-var starterRamPrice = 0;
-var starterConnectivityPrice = 0;
-
-const starterPrice = document.getElementById("starter-price");
-const starterRamSlider = document.getElementById("starter-ram-slider");
-const sliderRamText = document.getElementById("starter-ram-text");
-
-starterRamSlider.addEventListener("input", () => {
-    const sliderValue = parseInt(starterRamSlider.value);
-
-    switch (sliderValue) {
-        case 0:
-            sliderRamText.textContent = "3";
-            starterRamPrice = 0;
-            starterPrice.textContent = priceCalculation(
-                5,
-                starterRamPrice,
-                starterConnectivityPrice
-            );
-            break;
-        case 1:
-            sliderRamText.textContent = "6";
-            starterRamPrice = 5;
-            starterPrice.textContent = priceCalculation(
-                5,
-                starterRamPrice,
-                starterConnectivityPrice
-            );
-            break;
-        case 2:
-            sliderRamText.textContent = "12";
-            starterRamPrice = 10;
-            starterPrice.textContent = priceCalculation(
-                5,
-                starterRamPrice,
-                starterConnectivityPrice
-            );
-            break;
-    }
-});
-
-const starterConnectivitySlider = document.getElementById(
-    "starter-connection-slider"
-);
-const sliderConnectivityText = document.getElementById(
-    "starter-connection-text"
-);
-
-starterConnectivitySlider.addEventListener("input", () => {
-    const starterConnectivitySliderValue = parseInt(
-        starterConnectivitySlider.value
+// Updating the price based on the selected RAM on the slider
+function updatePrice(priceLevel) {
+    const selectedRAMValue = parseInt(sliderElements[priceLevel].value);
+    const selectedConnectionValue = parseInt(
+        connectionSliderElements[priceLevel].value
     );
 
-    switch (starterConnectivitySliderValue) {
-        case 0:
-            sliderConnectivityText.textContent = "10";
-            starterConnectivityPrice = 0;
-            starterPrice.textContent = priceCalculation(
-                5,
-                starterRamPrice,
-                starterConnectivityPrice
-            );
-            break;
-        case 1:
-            sliderConnectivityText.textContent = "2x10";
-            starterConnectivityPrice = 5;
-            starterPrice.textContent = priceCalculation(
-                5,
-                starterRamPrice,
-                starterConnectivityPrice
-            );
-            break;
-    }
-});
+    const selectedRam = ramArray[selectedRAMValue];
+    const selectedConnectionSpeed = connectionArray[selectedConnectionValue];
 
-// ----------------------- Middle Price and Text -------------------------
+    const basePrice = basePrices[priceLevel];
+    const totalPrice =
+        basePrice + selectedRAMValue * 5 + selectedConnectionValue * 5;
 
-var middleRamPrice = 0;
-var middleConnectivityPrice = 0;
-
-const middlePrice = document.getElementById("middle-price");
-const middleRamSlider = document.getElementById("middle-ram-slider");
-const middleRamText = document.getElementById("middle-ram-text");
-
-middleRamSlider.addEventListener("input", () => {
-    const sliderValue = parseInt(middleRamSlider.value);
-
-    switch (sliderValue) {
-        case 0:
-            middleRamText.textContent = "3";
-            middleRamPrice = 0;
-            middlePrice.textContent = priceCalculation(
-                10,
-                middleRamPrice,
-                middleConnectivityPrice
-            );
-            break;
-        case 1:
-            middleRamText.textContent = "6";
-            middleRamPrice = 5;
-            middlePrice.textContent = priceCalculation(
-                10,
-                middleRamPrice,
-                middleConnectivityPrice
-            );
-            break;
-        case 2:
-            middleRamText.textContent = "12";
-            middleRamPrice = 10;
-            middlePrice.textContent = priceCalculation(
-                10,
-                middleRamPrice,
-                middleConnectivityPrice
-            );
-            break;
-    }
-});
-
-const middleConnectivitySlider = document.getElementById(
-    "middle-connection-slider"
-);
-const middleConnectivityText = document.getElementById(
-    "middle-connection-text"
-);
-
-middleConnectivitySlider.addEventListener("input", () => {
-    const middleConnectivitySliderValue = parseInt(
-        middleConnectivitySlider.value
-    );
-
-    switch (middleConnectivitySliderValue) {
-        case 0:
-            middleConnectivityText.textContent = "10";
-            middleConnectivityPrice = 0;
-            middlePrice.textContent = priceCalculation(
-                10,
-                middleRamPrice,
-                middleConnectivityPrice
-            );
-            break;
-        case 1:
-            middleConnectivityText.textContent = "2x10";
-            middleConnectivityPrice = 5;
-            middlePrice.textContent = priceCalculation(
-                10,
-                middleRamPrice,
-                middleConnectivityPrice
-            );
-            break;
-    }
-});
-
-// ----------------------- Big Price and Text -------------------------
-
-var bigRamPrice = 0;
-var bigConnectivityPrice = 0;
-
-const bigPrice = document.getElementById("big-price");
-const bigRamSlider = document.getElementById("big-ram-slider");
-const bigRamText = document.getElementById("big-ram-text");
-
-bigRamSlider.addEventListener("input", () => {
-    const sliderValue = parseInt(bigRamSlider.value);
-
-    switch (sliderValue) {
-        case 0:
-            bigRamText.textContent = "3";
-            bigRamPrice = 0;
-            bigPrice.textContent = priceCalculation(
-                15,
-                bigRamPrice,
-                bigConnectivityPrice
-            );
-            break;
-        case 1:
-            bigRamText.textContent = "6";
-            bigRamPrice = 5;
-            bigPrice.textContent = priceCalculation(
-                15,
-                bigRamPrice,
-                bigConnectivityPrice
-            );
-            break;
-        case 2:
-            bigRamText.textContent = "12";
-            bigRamPrice = 10;
-            bigPrice.textContent = priceCalculation(
-                15,
-                bigRamPrice,
-                bigConnectivityPrice
-            );
-            break;
-    }
-});
-
-const bigConnectivitySlider = document.getElementById("big-connection-slider");
-const bigConnectivityText = document.getElementById("big-connection-text");
-
-bigConnectivitySlider.addEventListener("input", () => {
-    const bigConnectivitySliderValue = parseInt(bigConnectivitySlider.value);
-
-    switch (bigConnectivitySliderValue) {
-        case 0:
-            bigConnectivityText.textContent = "10";
-            bigConnectivityPrice = 0;
-            bigPrice.textContent = priceCalculation(
-                15,
-                bigRamPrice,
-                bigConnectivityPrice
-            );
-            break;
-        case 1:
-            bigConnectivityText.textContent = "2x10";
-            bigConnectivityPrice = 5;
-            bigPrice.textContent = priceCalculation(
-                15,
-                bigRamPrice,
-                bigConnectivityPrice
-            );
-            break;
-    }
-});
+    priceElements[priceLevel].textContent = `${totalPrice}`;
+    ramTextElements[priceLevel].textContent = `${selectedRam}`;
+    çonnectionTextElements[
+        priceLevel
+    ].textContent = `${selectedConnectionSpeed}`;
+}

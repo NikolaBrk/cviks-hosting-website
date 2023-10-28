@@ -1,37 +1,54 @@
 html,
 body {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 .fade-out {
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
-    /* background-color: #023483; */
+}
+
+.container {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 65%;
+}
+
+@media screen and (max-width: 1200px) {
+    .container {
+        width: 90%;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .container {
+        width: 90%;
+    }
+}
+@media screen and (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+}
+@media screen and (max-width: 480px) {
+    .container {
+        width: 90%;
+    }
 }
 
 /* ----------------------------------- Header ------------------------------------ */
 
-header {
+nav {
+    align-items: center;
     background-color: #023483;
     color: #fff;
-}
-
-nav {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-}
-
-.container {
-    width: 65%;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
 svg {
@@ -48,18 +65,18 @@ svg {
 }
 
 .navbar-icon > a {
+    color: #fff;
     display: flex;
     height: 60px;
-    width: 150px;
     text-decoration: none;
-    color: #fff;
+    width: 150px;
 }
 
 .nav-links {
-    list-style: none;
-    display: flex;
     align-items: center;
+    display: flex;
     height: 60px;
+    list-style: none;
     margin: 0px;
 }
 
@@ -68,30 +85,30 @@ svg {
 }
 
 .nav-links a {
-    display: flex;
     align-items: center;
-    text-decoration: none;
-    color: white;
     background-color: transparent;
-    font-weight: 400;
+    color: white;
+    display: flex;
     font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
 }
 
 .loginButton {
+    background-color: transparent;
+    border-radius: 0.35rem;
+    border: 1px solid transparent;
+    color: white;
     cursor: pointer;
-    outline: 0;
     display: inline-block;
+    font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
-    text-align: center;
-    background-color: transparent;
-    border: 1px solid transparent;
+    outline: 0;
     padding: 6px 20px;
-    font-size: 1rem;
-    border-radius: 0.35rem;
+    text-align: center;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
         border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    color: white;
     border-color: #fff;
     :hover {
         color: #fff;
@@ -107,53 +124,53 @@ svg {
 /* -------------- Dropdown Button -------------- */
 .dropbtn {
     background-color: transparent;
-    color: white;
-    padding: 5px 25px 5px 5px;
-    font-size: 14px;
     border: none;
-    height: 60px;
+    color: white;
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
     font-weight: 400;
+    height: 60px;
+    padding: 5px 25px 5px 5px;
 }
 
 .dropdown {
-    position: relative;
     display: inline-block;
+    position: relative;
 }
 
 .dropdown-content {
-    display: none;
-    position: absolute;
     background-color: #fff;
-    min-width: 200px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 11;
     border-radius: 15px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    display: none;
+    min-width: 200px;
+    position: absolute;
+    z-index: 11;
 }
 
 .dropdown-content a {
-    height: 25px;
     color: rgba(0, 0, 0, 0.655);
-    padding: 10px 14px;
     display: flex;
     font-family: Arial, Helvetica, sans-serif;
+    height: 25px;
+    padding: 10px 14px;
 }
 
 .dropdown-content p {
+    background-color: transparent;
     color: black;
+    display: block;
     font-weight: bold;
     margin: 0px;
+    padding-bottom: 5px;
     padding-left: 12px;
     padding-top: 10px;
-    padding-bottom: 5px;
-    display: block;
-    background-color: transparent;
 }
 
 .dropdown-content a:hover {
-    color: black;
     background-color: rgba(186, 184, 184, 0.609);
     border-radius: 15px;
+    color: black;
 }
 
 .dropdown:hover .dropdown-content {
@@ -165,15 +182,96 @@ svg {
 }
 
 .arrow {
+    border-color: #fff transparent transparent transparent;
+    border-style: solid;
+    border-width: 5px 5px 0 5px;
+    height: 0;
     position: absolute;
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
     width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 5px 5px 0 5px;
-    border-color: #fff transparent transparent transparent;
+}
+
+/* -------------- Burger Menu -------------- */
+
+.hamburger {
+    display: none;
+}
+
+.hamburger-toggle {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0px;
+}
+
+.bar {
+    background-color: #fff;
+    display: none;
+    height: 3px;
+    margin: 4px 0;
+    width: 25px;
+}
+
+.bar.active {
+    display: block;
+}
+
+.x-toggle {
+    color: #fff;
+    display: none;
+    font-size: 40px;
+    margin: 0px;
+}
+
+.x-toggle.active {
+    display: block;
+}
+
+.hamburger-content {
+    align-items: center;
+    background-color: #023483;
+    display: none;
+    text-align: center;
+    width: 100%;
+}
+
+.hamburger-content.active {
+    display: flex;
+}
+
+.hamburger-links {
+    margin: 0px 25%;
+    padding: 10px;
+    width: 50%;
+}
+
+.hamburger-links > p {
+    border-bottom: solid 1px #5b7db5;
+    border-top: solid 1px #5b7db5;
+    color: #5b7db5;
+    padding: 10px;
+}
+
+.hamburger-links > li {
+    list-style-type: none;
+    padding: 10px 0px;
+}
+
+.hamburger-links > li > a {
+    color: #fff;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+    }
 }
 
 /* ----------------------------------- Footer ------------------------------------ */
@@ -184,19 +282,19 @@ footer {
 }
 
 .footer-content {
-    width: 100%;
     display: flex;
     justify-content: space-between;
+    width: 100%;
 }
 
 .column {
-    width: 20%;
     padding: 15px;
+    width: 20%;
 }
 
 .footer-list {
-    padding-left: 0px;
     list-style-type: none;
+    padding-left: 0px;
 }
 
 .footer-list li {
@@ -204,9 +302,9 @@ footer {
 }
 
 .footer-list a {
-    text-decoration: none;
     color: #0233837f;
     font-size: 14px;
+    text-decoration: none;
 }
 
 .footer-list a:hover {
@@ -214,13 +312,13 @@ footer {
 }
 
 .company-logo {
-    padding: 15px;
     padding-bottom: 25px;
+    padding: 15px;
 }
 
 .company-logo svg {
-    width: 50px;
     height: 50px;
+    width: 50px;
 }
 
 .contact-logos {
@@ -228,123 +326,132 @@ footer {
 }
 
 .contact-logos a {
+    color: rgba(140, 136, 136, 0.537);
     padding-right: 5px;
     text-decoration: none;
-    color: rgba(140, 136, 136, 0.537);
 }
 
 .contact-logos a:hover {
     color: rgba(140, 136, 136, 0.995);
 }
 
+@media screen and (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .column {
+        padding: 5px;
+    }
+}
+
 /* ---------------------------------   Main  -------------------------------------- */
 
 /*------------- Animation ----------------*/
 .area {
-    /* background: #4e64c8; */
     background: linear-gradient(
         135deg,
         rgb(0, 68, 157) 0%,
         rgb(14, 42, 71) 100%
     );
-    width: 100%;
     height: 100vh;
+    width: 100%;
 }
 
 .circles {
-    position: absolute;
-    left: 0;
-    padding: 0px;
-    width: 100%;
     height: 100%;
+    left: 0;
     overflow: hidden;
+    padding: 0px;
+    position: absolute;
+    width: 100%;
     z-index: 1;
 }
 
 .circles li {
-    position: absolute;
-    display: block;
-    list-style: none;
-    width: 20px;
-    height: 20px;
-    background: rgba(255, 255, 255, 0.2);
     animation: animate 25s linear infinite;
+    background: rgba(255, 255, 255, 0.2);
     bottom: -150px;
+    display: block;
+    height: 20px;
+    list-style: none;
+    position: absolute;
+    width: 20px;
 }
 
 .circles li:nth-child(1) {
+    animation-delay: 0s;
+    height: 80px;
     left: 25%;
     width: 80px;
-    height: 80px;
-    animation-delay: 0s;
 }
 
 .circles li:nth-child(2) {
-    left: 10%;
-    width: 20px;
-    height: 20px;
     animation-delay: 2s;
     animation-duration: 12s;
+    height: 20px;
+    left: 10%;
+    width: 20px;
 }
 
 .circles li:nth-child(3) {
+    animation-delay: 4s;
+    height: 20px;
     left: 70%;
     width: 20px;
-    height: 20px;
-    animation-delay: 4s;
 }
 
 .circles li:nth-child(4) {
-    left: 40%;
-    width: 60px;
-    height: 60px;
     animation-delay: 0s;
     animation-duration: 18s;
+    height: 60px;
+    left: 40%;
+    width: 60px;
 }
 
 .circles li:nth-child(5) {
+    animation-delay: 0s;
+    height: 20px;
     left: 65%;
     width: 20px;
-    height: 20px;
-    animation-delay: 0s;
 }
 
 .circles li:nth-child(6) {
+    animation-delay: 3s;
+    height: 110px;
     left: 75%;
     width: 110px;
-    height: 110px;
-    animation-delay: 3s;
 }
 
 .circles li:nth-child(7) {
+    animation-delay: 7s;
+    height: 150px;
     left: 35%;
     width: 150px;
-    height: 150px;
-    animation-delay: 7s;
 }
 
 .circles li:nth-child(8) {
-    left: 50%;
-    width: 25px;
-    height: 25px;
     animation-delay: 15s;
     animation-duration: 45s;
+    height: 25px;
+    left: 50%;
+    width: 25px;
 }
 
 .circles li:nth-child(9) {
-    left: 20%;
-    width: 15px;
-    height: 15px;
     animation-delay: 2s;
     animation-duration: 35s;
+    height: 15px;
+    left: 20%;
+    width: 15px;
 }
 
 .circles li:nth-child(10) {
-    left: 85%;
-    width: 150px;
-    height: 150px;
     animation-delay: 0s;
     animation-duration: 11s;
+    height: 150px;
+    left: 85%;
+    width: 150px;
 }
 
 @keyframes animate {
@@ -364,28 +471,32 @@ footer {
 /*------------------------ Hero ----------------------------------*/
 
 .main-hero {
-    width: 100%;
-    height: 1200px;
-    z-index: 10;
-    display: flex;
     align-items: center;
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    z-index: 10;
 }
 
 .hero-description {
-    width: 50%;
     color: white;
-    text-align: left;
     min-width: 50%;
+    text-align: left;
+    width: 50%;
 }
 
 h1 {
-    margin: 15px 0px;
     font-size: 60px;
+    margin: 15px 0px;
+}
+
+.white--bar {
+    border-right: 4px solid #fff;
 }
 
 .hero-description > h1 > a {
-    text-decoration: none;
     color: white;
+    text-decoration: none;
 }
 
 .hero-description > p {
@@ -396,17 +507,21 @@ h1 {
     width: 50%;
 }
 
+.hero-img > img {
+    height: auto;
+    max-width: 100%;
+}
+
 .main-hero img {
-    /* float: right; */
+    border-radius: 150px;
     display: block;
     margin-left: auto;
-    border-radius: 150px;
 }
 
 .hero-img > p {
     color: black;
-    text-decoration: none;
     text-align: center;
+    text-decoration: none;
 }
 
 .hero-img > p > a {
@@ -414,50 +529,85 @@ h1 {
     text-decoration: none;
 }
 
+@media screen and (max-width: 768px) {
+    .hero-img {
+        display: none;
+    }
+
+    .hero-description {
+        text-align: center;
+        width: 100%;
+    }
+
+    .hero-description > h1 {
+        font-size: 48px;
+    }
+    .hero-description > p {
+        margin-right: 0px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hero-description > h1 {
+        font-size: 30px;
+    }
+
+    .hero-description > p {
+        font-size: 14px;
+        margin-right: 0px;
+    }
+}
+
 /*------------------------ Features ----------------------------------*/
 
 .features {
     display: block;
-    width: 100%;
-    margin-top: 50px;
     margin-bottom: 150px;
+    margin-top: 50px;
+    width: 100%;
 }
 
 .features-title {
     color: #023483;
     margin: 50px 0px;
-    width: 100%;
     text-align: center;
+    width: 100%;
 }
 
 .features-title > h2 {
-    text-decoration: underline;
-    font-weight: 700;
     font-size: 36px;
+    font-weight: 700;
+    text-decoration: underline;
 }
 
 .features-title > p {
-    text-decoration: none;
     font-size: 18px;
     font-weight: 200;
+    text-decoration: none;
 }
 
 .features-row {
-    display: flex;
-    width: 100%;
-    height: 175px;
-    text-align: left;
-    margin-bottom: 100px;
-    justify-content: center;
     align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.features-column {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 50%;
 }
 
 .feature {
-    width: 50%;
-    height: 100%;
     color: #023483;
-    padding: 15px;
+    height: 100%;
     margin: 0px 35px;
+    padding: 15px;
+    width: 50%;
 }
 
 .feature > h3 {
@@ -468,44 +618,41 @@ h1 {
     color: #023383b5;
 }
 
-.feature--right-side {
-    text-align: right;
-}
-
 .feature-img {
+    border-radius: 35%;
     display: flex;
-    width: 75px;
-    margin: 0px 25px;
-    border-radius: 35%;
-    border-color: #4e64c8;
-    transition: all 0.3s ease;
+    justify-content: center;
+    width: 100%;
 }
 
-.feature-img > a {
-    text-decoration: none;
-}
-
-.feature-img > a > svg {
-    padding: 10px;
-    margin: 10px;
+.feature-img > svg {
     background-color: #4e64c8;
-    color: white;
     border-radius: 35%;
+    color: white;
+    margin: 10px;
+    padding: 10px;
 }
 
-.feature-line {
-    width: 4px;
-    height: 100%;
-    background-color: #023483;
-    margin: 0px 25px;
-    border-radius: 2px;
+@media screen and (max-width: 768px) {
+    .features-row {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .features-title > h2 {
+        font-size: 26px;
+    }
+
+    .features-title > p {
+        font-size: 14px;
+    }
 }
 
 /*------------------------ Information ----------------------------------*/
 
 .information-section {
     width: 100%;
-    height: 600px;
     background: linear-gradient(
         135deg,
         rgb(0, 68, 157) 0%,
@@ -514,70 +661,93 @@ h1 {
 }
 
 .information {
-    width: 100%;
-    height: 600px;
-    text-align: center;
     color: white;
+    margin: 100px 0px 250px 0px;
+    text-align: center;
+    width: 100%;
+}
+
+.information > h3 {
+    font-size: 38px;
+}
+
+.information > h4 {
+    font-size: 30px;
+}
+
+.information-row {
+    display: flex;
+    justify-content: center;
+    margin: 100px 0px;
+}
+
+.information-img {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+}
+
+.information-text {
+    flex-direction: column;
+    text-align: left;
+    width: 50%;
+}
+
+.information-text > h3 {
+    width: 100%;
+}
+
+.information-text > ul > li {
+    margin: 25px 0px;
 }
 
 /*------------------------------- Server/Price Page --------------------------------------*/
 
 .prices-section {
-    width: 100%;
-    height: 1300px;
-    /* background: linear-gradient(
-        135deg,
-        rgb(0, 68, 157) 0%,
-        rgb(14, 42, 71) 100%
-    ); */
     background-image: url(/images/shiny.svg);
     background-repeat: no-repeat;
     background-size: cover;
     padding: 40px 0px;
-    padding-bottom: 250px;
+    width: 100%;
 }
 
 .prices {
-    width: 100%;
     display: block;
     margin-bottom: 250px;
+    width: 100%;
 }
 
-/* ---------------- */
-/*------ Title ----*/
-/* ---------------- */
+/*--------------- Title ----------------*/
 
 .prices-title {
     height: 100px;
-    width: 100%;
     text-align: center;
+    width: 100%;
 }
 
 .prices-title > h1 {
-    font-size: 46px;
     color: white;
+    font-size: 46px;
 }
 
-/* ---------------- */
-/*------ Buttens ----*/
-/* ---------------- */
+/*--------------- Buttens --------------*/
 
 .prices-buttens {
-    width: 100%;
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 
 .prices-toggle > button {
-    color: white;
-    padding: 10px 20px;
-    margin: 15px;
-    font-size: 18px;
-    cursor: pointer;
-    text-align: center;
     background-color: transparent;
-    border: none;
     border-radius: 10px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    margin: 15px;
+    padding: 10px 20px;
+    text-align: center;
 }
 
 .prices-toggle > button:hover {
@@ -603,46 +773,46 @@ h1 {
     border: 1px solid #fff;
 }
 
-/* ---------------- */
-/*---- Price List --*/
-/* ---------------- */
+/*------------ Price List -------------*/
 
 .prices-list {
-    display: none;
-    width: 100%;
-    justify-content: center;
     color: #023383dc;
+    display: none;
+    justify-content: center;
     text-align: center;
+    width: 100%;
 }
 
 .prices-list.active {
     display: block;
 }
 
-/* ---------------- */
-/*      Features    */
-/* ---------------- */
+.server-procesors {
+    display: none;
+}
+
+.server-procesors.active {
+    display: block;
+}
+
+/*----------- Features ---------------*/
 
 .prices-features {
     display: flex;
-    width: 100%;
-    margin: 50px 0px;
     justify-content: center;
+    margin: 50px 0px;
+    width: 100%;
 }
 
 .prices-features-card {
-    width: 22%;
-    margin: 20px;
-    border: 2px solid #fff;
     background-color: #fff;
     border-radius: 22px;
+    border: 2px solid #fff;
+    margin: 20px;
+    width: 33%;
 }
 
 .prices-features-card > p {
-    width: 100%;
-    margin: 0px;
-    padding: 20px 0px;
-    color: #fff;
     background: linear-gradient(
         -45deg,
         rgba(179, 220, 237, 1) 0%,
@@ -650,41 +820,43 @@ h1 {
         rgba(32, 124, 229, 1) 50%,
         rgba(32, 124, 229, 1) 100%
     );
+    color: #fff;
+    margin: 0px;
+    padding: 20px 0px;
+    width: 100%;
 }
 
 .features-top-paragraph {
-    border-top-right-radius: 20px;
     border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
 
 .features-bottom-paragraph {
-    border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 .prices-features-card > ul {
-    width: 100%;
     padding: 0px;
+    width: 100%;
 }
 
 .prices-features-card > ul > li {
-    width: 100%;
+    list-style-type: none;
     margin: 0px;
     padding: 10px 0px;
-    list-style-type: none;
+    width: 100%;
 }
 
-/* ---------------- */
-/*------ Cards -----*/
-/* ---------------- */
+/*------------- Cards ------------*/
 
 .prices-card {
-    min-width: 22%;
-    margin: 15px;
-    border: 2px solid #fff;
     background-color: #fff;
     border-radius: 20px;
+    border: 2px solid #fff;
+    margin: 40px 15px;
     transition: 0.15s ease-in-out;
+    width: 24%;
 }
 
 .prices-card:hover {
@@ -693,70 +865,63 @@ h1 {
 
 .prices-card-list {
     display: flex;
-    width: auto;
-    text-align: center;
     justify-content: space-evenly;
+    text-align: center;
+    width: auto;
 }
 
 .prices-card > h2 {
-    width: 100%;
-    margin: 15px 0px 40px 0px;
-    font-size: 46px;
     background: -webkit-linear-gradient(
         rgb(179, 220, 237, 1),
         rgb(32, 124, 229, 1)
     );
-    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 30px;
+    margin: 15px 0px 40px 0px;
+    width: 100%;
 }
 
 .prices-card-number {
-    display: flex;
-    width: 100%;
     color: #023483;
+    display: flex;
     justify-content: center;
+    width: 100%;
 }
 
-.bubble {
-    width: 50%;
-    background: linear-gradient(
-        -45deg,
-        rgba(179, 220, 237, 1) 0%,
-        rgba(41, 184, 229, 1) 0%,
-        rgba(32, 124, 229, 1) 50%,
-        rgba(32, 124, 229, 1) 100%
+.prices-card-number-text > p {
+    background: -webkit-linear-gradient(
+        rgb(179, 220, 237, 1),
+        rgb(32, 124, 229, 1)
     );
-    color: #fff;
-    border-radius: 50%;
-    padding: 15px;
-}
-
-.prices-card-number-big {
-    margin: 0px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     font-size: 46px;
+    margin: 0px;
 }
 
 .prices-card-number-small {
-    margin: 0px;
     font-size: 24px;
+    margin: 0px;
 }
 
 .prices-card > ul {
-    padding: 0px 40px;
     list-style-type: none;
+    padding: 0px 40px;
 }
 
 .prices-card > ul > li {
-    width: 100%;
     padding: 30px 0px;
+    width: 100%;
 }
 
 .prices-card-bubble {
-    color: #fff;
     background-color: #023483;
-    width: 50px;
+    color: #fff;
     text-wrap: wrap;
+    width: 50px;
 }
 
 .small-text {
@@ -767,32 +932,55 @@ h1 {
     padding: 10px;
 }
 
+@media screen and (max-width: 768px) {
+    .prices-features-card {
+        width: 55%;
+    }
+
+    .prices-card-list {
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .prices-card {
+        width: 55%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .prices-features-card {
+        width: 80%;
+    }
+
+    .prices-card {
+        width: 80%;
+    }
+}
+
 /*------------------------------- Server Information --------------------------------------*/
 
 .server-information {
-    display: block;
-    width: 100%;
-    margin: auto;
     align-items: center;
+    display: block;
+    margin: auto;
+    width: 100%;
 }
 
 .server-information > h2 {
-    width: 100%;
     text-align: center;
+    width: 100%;
 }
 
 .information-row {
-    display: flex;
-    width: 100%;
-    /* height: 40vh; */
-    justify-content: center;
     align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 .information-text {
-    display: flex;
-    /* width: 45%; */
     align-items: center;
+    display: flex;
 }
 
 .information-text-layout {
@@ -804,29 +992,30 @@ h1 {
 }
 
 .information-text-layout > p {
-    color: #023483;
-    border-top: 2px solid #023483;
     border-bottom: 2px solid #023483;
+    border-top: 2px solid #023483;
+    color: #023483;
     padding: 15px 0px;
 }
 
 .information-img {
     display: flex;
-    width: 650px;
     margin: 20px;
+    width: 650px;
 }
 
 .information-img > img {
-    width: 650px;
+    height: auto;
+    max-width: 100%;
 }
 
 .information-divider {
-    width: 8px;
-    height: 150px;
     background-color: #023483;
     border-radius: 5px;
+    height: 150px;
     justify-content: center;
     margin: 0px 35px;
+    width: 4px;
 }
 
 /*------------------------------- Support Page --------------------------------------*/
@@ -838,11 +1027,11 @@ h1 {
 }
 
 .support {
-    width: 100%;
-    display: block;
     color: #fff;
-    margin: 450px 0px;
+    display: block;
     margin-top: 350px;
+    margin: 450px 0px;
+    width: 100%;
 }
 
 .support ul {
@@ -851,11 +1040,11 @@ h1 {
 }
 
 .support-svg {
-    max-width: fit-content;
     background-color: #5b7db5;
-    padding: 15px;
-    margin: auto;
     border-radius: 50%;
+    margin: auto;
+    max-width: fit-content;
+    padding: 15px;
 }
 
 .support-svg svg {
@@ -863,17 +1052,17 @@ h1 {
 }
 
 .top-support {
-    width: 100%;
-    margin-bottom: 100px;
     display: flex;
     justify-content: center;
+    margin-bottom: 100px;
     text-align: center;
+    width: 100%;
 }
 
 .discord-support {
-    padding: 0px 40px;
-    border-right: 4px solid #fff;
     border-radius: 2px;
+    border-right: 4px solid #fff;
+    padding: 0px 40px;
 }
 
 .skype-support {
@@ -881,11 +1070,11 @@ h1 {
 }
 
 .bottom-support {
-    width: 100%;
+    border-radius: 2px;
     display: flex;
     justify-content: center;
     text-align: center;
-    border-radius: 2px;
+    width: 100%;
 }
 
 .email-support {
@@ -897,13 +1086,13 @@ h1 {
 }
 
 .support-button {
+    background-color: transparent;
+    border-radius: 3px;
+    border: 1px solid #fff;
+    color: #fff;
     cursor: pointer;
     font-size: 16px;
     padding: 5px 15px;
-    background-color: transparent;
-    border: 1px solid #fff;
-    color: #fff;
-    border-radius: 3px;
     transition: background-color 0.15s ease-in-out;
 }
 .support-button:hover {
@@ -913,7 +1102,6 @@ h1 {
 /*------------------------------- FAQ Page --------------------------------------*/
 
 .faq-title-section {
-    /* background-color: #4e64c8; */
     background: linear-gradient(
         135deg,
         rgb(0, 68, 157) 0%,
@@ -922,10 +1110,10 @@ h1 {
 }
 
 .faq-title {
-    width: 100%;
+    color: #fff;
     margin: 125px 0px;
     text-align: center;
-    color: #fff;
+    width: 100%;
 }
 
 .faq-title > h1 {
@@ -937,54 +1125,79 @@ h1 {
 }
 
 .questions-type {
-    width: 100%;
-    text-align: center;
-    padding-top: 100px;
     padding-bottom: 75px;
+    padding-top: 100px;
+    text-align: center;
+    width: 100%;
 }
 
 .faq-questions-list {
-    display: flex;
-    width: 100%;
-    padding-bottom: 150px;
-    flex-direction: column;
     align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 150px;
+    width: 100%;
 }
 
 .faq-question-box {
-    width: 60%;
-    border: 2px solid #023483;
     border-radius: 15px;
+    border: 2px solid #023483;
     padding: 15px;
+    width: 60%;
 }
 
 details {
     background: transparent;
-    width: 100%;
-    padding: 15px;
-    font-size: 16px;
     color: #023483;
+    font-size: 16px;
     font-weight: 300;
+    padding: 15px;
+    width: 100%;
 }
 
 details summary {
+    color: #023483;
     cursor: pointer;
-    transition: margin 150ms ease-out;
     font-size: 24px;
     padding-bottom: 10px;
-    color: #023483;
+    transition: margin 150ms ease-out;
 }
 
 details[open] summary {
     margin-bottom: 10px;
 }
 
+.even--section {
+    background: linear-gradient(
+        135deg,
+        rgb(0, 68, 157) 0%,
+        rgb(14, 42, 71) 100%
+    );
+}
+
+.type--even {
+    color: #fff;
+}
+
+.faq--even-box {
+    border: 2px solid #fff;
+}
+
+.details--even {
+    color: #fff;
+}
+
+.summary--even {
+    color: #fff;
+}
+
 /*------------------------------- Datacenter Page --------------------------------------*/
 
 .map-section {
-    background-image: url("/images/map-image.png");
-    width: 100%;
-    z-index: 1;
+    background-image: url("/images/starlink-location.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 .map {
@@ -993,21 +1206,52 @@ details[open] summary {
     width: 100%;
 }
 
+.map-img {
+    width: 50%;
+}
+
 .map-side {
     width: 50%;
 }
 
+.map-side > a {
+    text-decoration: none;
+}
+
 .map-text {
     background-color: white;
-    color: #023483;
-    z-index: 10;
-    padding: 25px;
-    margin: 600px 75px;
     border-radius: 25px;
+    color: #023483;
+    margin: 600px 75px;
+    padding: 25px;
+    transition: 0.5s ease-in-out;
+}
+
+.map-text > img {
+    width: 40%;
+}
+
+.map-text:hover {
+    transform: scale(1.12);
 }
 
 .map-text > p {
     font-weight: 300;
+}
+
+@media screen and (max-width: 1024px) {
+    .map-section {
+        background-size: cover;
+    }
+    .map-side {
+        width: 55%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .map-text {
+        margin: 600px 0px;
+    }
 }
 
 /*--------------- Features Page --------------*/
@@ -1017,86 +1261,83 @@ details[open] summary {
 }
 
 .location-features {
-    width: 100%;
-    margin: 100px;
     color: white;
+    margin: 50px 0px 300px;
+    width: 100%;
 }
 
 .location-features-title {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 50px;
     font-size: 36px;
+    margin-bottom: 200px;
+    text-align: center;
+    width: 100%;
 }
 
 .location-features-list {
-    width: 100%;
     display: flex;
     justify-content: center;
     text-align: center;
+    width: 100%;
 }
 
 .location-features-item {
     margin: 25px;
+    width: 30%;
 }
 
 .location-features-item > svg {
     background-color: white;
-    padding: 15px;
     border-radius: 20px;
     color: #0652ce;
+    padding: 15px;
+}
+
+@media screen and (max-width: 768px) {
+    .location-features-list {
+        align-items: center;
+        flex-direction: column;
+    }
 }
 
 /*------------------------------- Hardware Page --------------------------------------*/
 
 .specifications-section {
-    background: linear-gradient(
-        -45deg,
-        rgba(179, 220, 237, 1) 0%,
-        rgba(41, 184, 229, 1) 0%,
-        rgba(32, 124, 229, 1) 50%,
-        rgba(32, 124, 229, 1) 100%
-    );
+    background-image: url(/images/circuit-board.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .specifications {
+    margin: 350px 0px;
     width: 100%;
-    margin: 250px 0px;
-}
-
-.hardware-title {
-    width: 100%;
-    margin-bottom: 200px;
-    text-align: center;
-    color: #fff;
-}
-
-.hardware-title > h1 {
-    font-size: 48px;
 }
 
 .specifications-table {
-    width: 100%;
     display: flex;
     justify-content: center;
     margin-bottom: 100px;
+    width: 100%;
+}
+
+.table-title {
+    background-color: #023483;
+    color: #fff;
+    font-size: 46px;
+    padding: 10px;
 }
 
 .specifications-table > table {
-    border-collapse: collapse;
     background-color: #fff;
+    border-collapse: collapse;
 }
 
 .specifications-table th,
 .specifications-table td {
-    border-bottom: 1px solid #023483;
-    padding: 10px;
-    /* background-color: white; */
+    border: 1px solid #023483;
+    padding: 30px;
 }
 
 .specifications-table th {
-    background-color: #023483;
-    color: #fff;
     text-align: left;
 }
 

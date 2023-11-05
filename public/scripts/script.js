@@ -157,46 +157,70 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // --------------------------------- Slider Price Change -------------------------------------------
 
-// Base prices, Ram Arrays and connection Arrays
+// Initializing Base prices, Ram , Connection  and DDost Protection Arrays
+// The basePrices array assings the unmodified/base prices for the cards in order
+// (basePrice[0] is for the first card and so on)
 const basePrices = [
-    5, 15, 25, 35, 60, 90, 5, 15, 25, 35, 60, 90, 5, 15, 25, 35, 60, 90,
+    100, 120, 110, 145, 180, 80, 135, 160, 230, 280, 320, 360, 60, 70, 80, 120,
+    170, 195,
 ];
-const ramArray = [8, 16, 32, 64, 128];
+const ramArray = [64, 128];
+const xeonRamArray = [32, 64, 128, 256, 512];
 const connectionArray = ["10", "2x10"];
+const ddosArray = ["Standard ", "Premium "];
 
-// Getting all price elements and slider elements
+// Getting all price and slider elements as arrays into variables
 const priceElements = document.getElementsByClassName("price");
+
 const ramTextElements = document.getElementsByClassName("ram-text");
 const sliderElements = document.getElementsByClassName("ram-slider");
+
 const çonnectionTextElements =
     document.getElementsByClassName("connection-text");
 const connectionSliderElements =
     document.getElementsByClassName("connection-slider");
 
-// Looping through price elements and attaching event listeners
+const ddosTextElements = document.getElementsByClassName("ddos-text");
+const ddosSliderElements = document.getElementsByClassName("ddos-slider");
+// Looping through slider element arrays and attaching event listeners
 for (let i = 0; i < priceElements.length; i++) {
     sliderElements[i].addEventListener("input", () => updatePrice(i));
     connectionSliderElements[i].addEventListener("input", () => updatePrice(i));
+    ddosSliderElements[i].addEventListener("input", () => updatePrice(i));
     updatePrice(i);
 }
 
-// Updating the price based on the selected RAM on the slider
+// Updating the price based on the selected RAM/Connectivity/DDoS Protection on the slider
 function updatePrice(priceLevel) {
     const selectedRAMValue = parseInt(sliderElements[priceLevel].value);
     const selectedConnectionValue = parseInt(
         connectionSliderElements[priceLevel].value
     );
+    const selectedDDosValue = parseInt(ddosSliderElements[priceLevel].value);
+    // If statment that figures out which Ram Array to use based on the max size of the input
+    let selectedRam;
+    if (parseInt(sliderElements[priceLevel].max) === 4) {
+        selectedRam = xeonRamArray[selectedRAMValue];
+    } else {
+        selectedRam = ramArray[selectedRAMValue];
+    }
 
-    const selectedRam = ramArray[selectedRAMValue];
     const selectedConnectionSpeed = connectionArray[selectedConnectionValue];
-
+    const selectedDDosSpeed = ddosArray[selectedDDosValue];
+    // basePrice at the current priceLevel (the card the slider belongs to)
     const basePrice = basePrices[priceLevel];
     const totalPrice =
-        basePrice + selectedRAMValue * 5 + selectedConnectionValue * 5;
+        basePrice +
+        selectedRAMValue * 15 +
+        selectedConnectionValue * 15 +
+        selectedDDosValue * 15;
 
+    // Changing the text for the price on the current card and the text above the
+    // slider that is currently being used
     priceElements[priceLevel].textContent = `${totalPrice}`;
     ramTextElements[priceLevel].textContent = `${selectedRam}`;
     çonnectionTextElements[
         priceLevel
     ].textContent = `${selectedConnectionSpeed}`;
+    ddosTextElements[priceLevel].textContent = `${selectedDDosSpeed}`;
 }

@@ -1,34 +1,57 @@
-// ----------------------- Text Animation -------------------------
+// ----------------------- Hero Text Animation -------------------------
 
+// Constructor function that takes three parameters:
+// el (the HTML element to be typed on), toRotate (an array of strings to be typed),
+// and period (the duration of the pause between typing cycles)
 var TxtType = function (el, toRotate, period) {
     this.toRotate = toRotate;
     this.el = el;
-    this.loopNum = 0;
+    this.loopNum = 0; // Keeps track of the number of loops the program is on (per string not array)
     this.period = parseInt(period, 10) || 2000;
     this.txt = "";
-    this.tick();
-    this.isDeleting = false;
+    this.tick(); // call the tick method to start the typing animation
+    this.isDeleting = false; //property is initialized to false, indicating that the animation
+    // is in typing mode
 };
 
 TxtType.prototype.tick = function () {
+    // Calculates i to find which string of the array needs to be displayed
+    // It does this by finding the remainder of loopNum when you divide it by toRotate.length
+    // For example if the current loopNum is 7 and the array is always 4 ( 7 % 4 = 3) it
+    // will display the last element in the toRotate array aka this.toRotate[3]
+    // This code also ensure that the code can go on for forever
     var i = this.loopNum % this.toRotate.length;
     var fullTxt = this.toRotate[i];
 
+    // This if statment check if the isDeleting variable is true or false and then either
+    // removes 1 character from the txt string or adds 1 character
     if (this.isDeleting) {
         this.txt = fullTxt.substring(0, this.txt.length - 1);
     } else {
         this.txt = fullTxt.substring(0, this.txt.length + 1);
     }
 
+    // This part of the code injects the element, text and class into the HTML
     this.el.innerHTML = '<span class="wrap white--bar">' + this.txt + "</span>";
 
+    // Here we assign a referance to the current TxtType instance to ensure that it's
+    // accessible inside the setTimeout callback function. Otherwise the context of "this" can change
+    // leading to some unintended behavior or errors.
     var that = this;
+
+    // Delta is a random delay value to simulate a varying typing speed
     var delta = 200 - Math.random() * 100;
 
+    // If the animation is in deleting mode the delay gets halved to
+    // simulate the deletion always being faster
     if (this.isDeleting) {
         delta /= 2;
     }
 
+    // Here the if statement checks weather or not we are in deleting mode and if the txt is completed
+    // If we are not in deleting mode and the text is compelted we chage isDeleting to true to switch modes
+    // If the text is empty and we are in deleting mode (isDeleting = ture) then we change modes
+    // and increment the number of loops we are on
     if (!this.isDeleting && this.txt === fullTxt) {
         delta = this.period;
         this.isDeleting = true;
@@ -38,11 +61,17 @@ TxtType.prototype.tick = function () {
         delta = 500;
     }
 
+    // Here we simply have a timeout function for the program to wait a bit before calling this function
+    // again and repeating the loop
     setTimeout(function () {
         that.tick();
     }, delta);
 };
 
+// on loading the window we find all the elements with class name "typewrite" and add them into and array
+// we the loop through the elements array and assign (in this case only 1) the texts from the html
+// element "data-type" to "toRotate" and the speed of the typing from the "data-period"
+// attribute into the "period" variable
 window.onload = function () {
     var elements = document.getElementsByClassName("typewrite");
     for (var i = 0; i < elements.length; i++) {
@@ -56,6 +85,7 @@ window.onload = function () {
 
 // ----------------------- Page Transition -------------------------
 
+// Code that makes the body fade out when an "a" element gets clicked
 document.addEventListener("DOMContentLoaded", function () {
     const links = document.querySelectorAll("a");
 
@@ -65,19 +95,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const href = this.getAttribute("href");
 
-            // Add a CSS class to trigger the transition effect
             document.body.classList.add("fade-out");
 
-            // After a delay, navigate to the new page
             setTimeout(function () {
                 window.location.href = href;
-            }, 800); // Adjust the delay time as needed
+            }, 800);
         });
     });
 });
 
 // ----------------------- Hamburger Menu -------------------------
 
+// The hamburger butten interaction to show the navigatio buttens for smaller screen sizes
 const menuToggle = document.querySelector(".hamburger-toggle");
 const hamburger = document.querySelector(".hamburger-content");
 const buttenLine = document.querySelectorAll(".bar");
@@ -95,6 +124,7 @@ menuToggle.addEventListener("click", () => {
 
 // --------------------------------- Butten Activation -------------------------------
 
+// All the buttens for the server page to show the different hosting and CPU options
 document.addEventListener("DOMContentLoaded", function () {
     const btn1 = document.getElementById("price-btn1");
     const btn2 = document.getElementById("price-btn2");
@@ -155,7 +185,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// --------------------------------- Slider Price Change -------------------------------------------
+// --------------------------------- Server Slider Price Change -------------------------------------------
+
+// Code to dynamicly change the prices when the sliders are being moved by the user
 
 // Initializing Base prices, Ram , Connection  and DDost Protection Arrays
 // The basePrices array assings the unmodified/base prices for the cards in order

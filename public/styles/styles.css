@@ -1359,3 +1359,22 @@ details[open] summary {
 .specifications-table tr:hover {
     background-color: #b1b1b1;
 }
+
+@media screen and (max-width: 768px) {
+    .specifications-table {
+        width: 100%;
+    }
+
+    .table-title {
+        background-color: #023483;
+        color: #fff;
+        font-size: 26px;
+        padding: 2px;
+    }
+
+    .specifications-table th,
+    .specifications-table td {
+        border: 1px solid #023483;
+        padding: 2px;
+    }
+}
